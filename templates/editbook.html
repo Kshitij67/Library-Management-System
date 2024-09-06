@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-3">
+  <h1>Edit Book</h1>
+  <form action="/editbook/" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="hidden" name="bookid" value="{{books.id}}" />
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter Title"
+        value="{{ books.title }}"
+        name="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input
+        type="Price"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Enter Price"
+        value="{{ books.price }}"
+        name="price"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Enter Description"
+        value="{{ books.description }}"
+        name="description"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
